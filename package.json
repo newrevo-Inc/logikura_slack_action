@@ -1,0 +1,25 @@
+{
+  "name": "logikura_slack_action",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/newrevo-Inc/logikura_slack_action.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/newrevo-Inc/logikura_slack_action/issues"
+  },
+  "homepage": "https://github.com/newrevo-Inc/logikura_slack_action#readme",
+  "dependencies": {
+    "@actions/core": "^1.2.5",
+    "@actions/github": "^4.0.0",
+    "@slack/web-api": "^5.11.0"
+  }
+}

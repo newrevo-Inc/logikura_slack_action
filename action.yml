@@ -1,0 +1,16 @@
+name: 'issue notificater'
+description: 'send to slack'
+inputs:
+  text:
+    description: 'message text'
+    required: true
+  block-message:
+    description: 'block message'
+    required: true
+  user-list-path:
+    description: 'user list'
+    default: './userlist.json'
+    required: true
+runs:
+  using: 'node12'
+  main: 'index.js'

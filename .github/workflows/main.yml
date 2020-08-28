@@ -1,0 +1,33 @@
+# This workflow will triage pull requests and apply a label based on the
+# paths that are modified in the pull request.
+#
+# To use this workflow, you will need to set up a .github/labeler.yml
+# file with configuration.  For more information, see:
+# https://github.com/actions/labeler
+
+name: dev_check
+on:
+  issues:
+    types: [labeled]
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  slack_notify:
+    if: github.event.label.name == '確認依頼中'
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+    # Runs a single command using the runners shell
+    - uses: actions/checkout@v2
+    - name: Get color
+      run: echo $GITHUB_WORKSPACE
+    - name: Slack Notification
+      env:
+        SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+        CHANNEL_ID: C019D478FPG
+      uses: ./
+      with:
+        text: 確認依頼
+        block-message: "確認依頼がありました! 確認をお願いします :pray: \n確認が完了したら、確認依頼ラベルを外してください"
